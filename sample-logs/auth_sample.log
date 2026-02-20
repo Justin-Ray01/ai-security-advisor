@@ -1,1 +1,6 @@
 
+Jan 31 22:01:01 host sshd[111]: Failed password for invalid user admin from 10.0.2.15 port 5522 ssh2
+Jan 31 22:01:02 host sshd[111]: Failed password for invalid user admin from 10.0.2.15 port 5523 ssh2
+Jan 31 22:01:03 host sshd[111]: Failed password for root from 192.168.1.50 port 4012 ssh2
+Jan 31 22:01:04 host sshd[111]: Failed password for root from 192.168.1.50 port 4013 ssh2
+Jan 31 22:01:10 host sshd[111]: Accepted password for vmuser from 10.0.2.15 port 6001 ssh2
