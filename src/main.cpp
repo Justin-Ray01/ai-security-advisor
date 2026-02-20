@@ -62,7 +62,7 @@ static Findings analyze_auth_log(const fs::path& path) {
         throw std::runtime_error("Could not open log file: " + path.string());
     }
 
-    // Very common auth.log patterns (Ubuntu/Debian style). We keep regexes simple on purpose.
+    // Very common auth.log patterns
     // Failed ssh:
     // "Failed password for invalid user admin from 10.0.2.15 port 5555 ssh2"
     // "Failed password for root from 192.168.1.50 port 4444 ssh2"
@@ -97,7 +97,7 @@ static Findings analyze_auth_log(const fs::path& path) {
         }
     }
 
-    // --- Risk scoring heuristics (simple, explainable "AI") ---
+    // --- Risk scoring heuristics
     // Base risk: failures indicate probing
     if (f.ssh_failed >= 5) add_score(f, 10, "Multiple SSH failures detected");
     if (f.ssh_failed >= 20) add_score(f, 15, "High volume of SSH failures (possible brute-force)");
@@ -276,7 +276,6 @@ int main(int argc, char* argv[]) {
         // Console output (human-friendly)
         std::cout << report << "\n";
 
-        // Optional save outputs for portfolio proof
         if (save) {
             fs::create_directories("sample-output");
             std::ofstream("sample-output/findings.txt") << findings;
